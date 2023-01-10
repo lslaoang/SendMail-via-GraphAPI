@@ -1,0 +1,25 @@
+server:
+  port: 8088
+
+azure:
+  activedirectory:
+    client-id: 73cee85e-aa94-453a-aa42-cc326125a6b2
+    client-secret: DKn8Q~mIa._zGJtdKK7RQh2oX~Qp8HTR0Uw9jbs8 #TODO: Store secrets in VAULT
+    app-id-uri: api://SendGraph
+    tenant-id: a42e43e2-c7b8-499c-89a6-4b9bac2d5a6e
+    authorization-clients:
+      graph:
+        scopes:
+          - https://graph.microsoft.com/Mail.Send
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+        web:
+          filter:
+            CommonsRequestLoggingFilter: TRACE
+    com:
+      azure:
+        spring: TRACE

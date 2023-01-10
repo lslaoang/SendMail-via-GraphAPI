@@ -15,23 +15,22 @@
     <description>Send Mail via GraphAPI</description>
     <properties>
         <java.version>17</java.version>
-        <spring-cloud-azure.version>3.13.0</spring-cloud-azure.version>
+        <azure.version>3.12.0</azure.version>
     </properties>
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-starter-active-directory</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-identity</artifactId>
@@ -47,9 +46,14 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webflux</artifactId>
+            <version>5.3.18</version>
+        </dependency>
+        <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>azure-spring-boot</artifactId>
+            <version>3.12.0</version>
         </dependency>
 
     </dependencies>
@@ -57,8 +61,8 @@
         <dependencies>
             <dependency>
                 <groupId>com.azure.spring</groupId>
-                <artifactId>spring-cloud-azure-dependencies</artifactId>
-                <version>${spring-cloud-azure.version}</version>
+                <artifactId>azure-spring-boot-bom</artifactId>
+                <version>${azure.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
