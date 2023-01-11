@@ -7,5 +7,5 @@ import java.net.URISyntaxException;
 
 public interface GraphService {
     void verifyRights() throws URISyntaxException;
-    void sendMail(MailBody mailBody);
+    void sendMail(MailBody mailBody) throws URISyntaxException;
 }

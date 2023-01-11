@@ -42,6 +42,7 @@ public class AADOAuth2ResourceServerSecurityConfig extends AADResourceServerWebS
                 .authorizeRequests(requests -> requests
                         .mvcMatchers(HttpMethod.GET, "/health").anonymous()
                         .mvcMatchers(HttpMethod.GET, "/api/v1/verify").authenticated()
+                        .mvcMatchers(HttpMethod.POST, "/api/v1/send-mail").authenticated()
                         .anyRequest()
                         .denyAll())
                 .headers()
