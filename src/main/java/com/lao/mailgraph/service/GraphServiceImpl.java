@@ -8,7 +8,7 @@ public class GraphServiceImpl implements GraphService {
 
     @Override
     public void verifyRights() {
-        
+
     }
 
     @Override

@@ -12,6 +12,6 @@ public class GraphController {
 
     @GetMapping("/verify")
     public ResponseEntity verifyUser(){
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity("Status verified!",HttpStatus.OK);
     }
 }
