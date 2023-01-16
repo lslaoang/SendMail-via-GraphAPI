@@ -12,6 +12,9 @@ azure:
         scopes:
           - https://graph.microsoft.com/Mail.Send
 
+app:
+  mailbox: "neo.sophos.dev@gmail.com"
+
 logging:
   level:
     org:

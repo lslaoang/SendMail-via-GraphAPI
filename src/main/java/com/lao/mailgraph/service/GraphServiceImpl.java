@@ -4,6 +4,7 @@ import com.lao.mailgraph.model.MailBody;
 import com.lao.mailgraph.model.feedback.BodyMessage;
 import com.lao.mailgraph.model.feedback.EmailRecipient;
 import com.lao.mailgraph.model.feedback.FeedBackModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -20,9 +21,12 @@ import static org.springframework.security.oauth2.client.web.reactive.function.c
 @Service
 public class GraphServiceImpl implements GraphService {
 
-    private final String feedBackMailBox = "neo.sophos.dev@gmail.com";
+    private final String CONTENT_TYPE_TEXT = "Text";
     private final Logger LOGGER = Logger.getLogger(GraphService.class.getName());
     private final WebClient webClient;
+
+    @Value(("${app.mailbox}"))
+    private String feedBackMailBox;
 
     public GraphServiceImpl(WebClient webClient) {
         this.webClient = webClient;
@@ -82,7 +86,7 @@ public class GraphServiceImpl implements GraphService {
                 .message(FeedBackModel.Message.builder()
                         .subject(mailBody.getSubject())
                         .body(BodyMessage.builder()
-                                .contentType("Text")
+                                .contentType(CONTENT_TYPE_TEXT)
                                 .content(mailBody.getMessage())
                                 .build())
                         .toRecipients(Collections.singletonList(EmailRecipient.builder()
