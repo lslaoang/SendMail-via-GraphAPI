@@ -60,8 +60,11 @@ public class GraphServiceImpl implements GraphService {
                     .contentType(MediaType.APPLICATION_JSON)
                     .bodyValue(prepareMessageBody(mailBody))
                     .retrieve()
-                    .bodyToMono(String.class);
-
+                    .bodyToMono(String.class)
+                    .doOnError(error -> {
+                        System.out.println("This is the error: " + error.getMessage());
+                    })
+                    ;
             apiResponse.subscribe(res -> System.out.println("Response: " + res));
 
             System.out.println("Email sent successfully.");
