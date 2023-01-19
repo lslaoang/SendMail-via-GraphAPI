@@ -34,7 +34,8 @@ public class AADOAuth2ResourceServerSecurityConfig extends AADResourceServerWebS
         http
                 .exceptionHandling()
                 .accessDeniedHandler(intuneAccessDeniedHandler)
-                .authenticationEntryPoint(intuneAuthenticationEntryPoint).and()
+                .authenticationEntryPoint(intuneAuthenticationEntryPoint)
+                .and()
                 .addFilter(intuneAuthenticationFailureFilter.bearerTokenAuthenticationFilter(authenticationManagerBean()))
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
